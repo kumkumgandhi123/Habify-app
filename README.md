@@ -475,4 +475,4 @@ For support, questions, or feature requests:
 
 **Made with ❤️ for building better habits through gamification**
 
-🎮 **Start your habit journey today!** → [Live Demo](your-deployed-url-here)
+🎮 **Start your habit journey today!** → [Live Demo](https://habify-app.onrender.com/)
