@@ -6,7 +6,8 @@ echo "=== Building Habify App for Production ==="
 # Build React frontend
 echo "Building React frontend..."
 cd interface
-npm ci
+npm cache clean --force
+npm ci --legacy-peer-deps
 npm run build
 cd ..
 

@@ -10,8 +10,8 @@
     "install-deps": "pip install -r requirements.txt && cd interface && npm install"
   },
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": "20.x",
+    "npm": "10.x"
   },
   "devDependencies": {
     "concurrently": "^7.6.0"
