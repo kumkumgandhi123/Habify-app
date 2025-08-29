@@ -12,7 +12,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
     const USE_DJANGO_API = process.env.REACT_APP_USE_BACKEND === 'true'
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
 
-    // Safe default theme for ActivityCalendar
+    // Valid 5-color light theme for ActivityCalendar
     const calendarTheme = {
         light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
     }
@@ -28,7 +28,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
                 const data = await response.json()
                 if (data.submissions && Array.isArray(data.submissions)) {
                     const transformedData = data.submissions.map(submission => ({
-                        date: submission.created_at.split('T')[0],
+                        date: submission.created_at.split('T')[0], // YYYY-MM-DD
                         count: 1,
                         level: submission.activity
                     }))
@@ -57,11 +57,9 @@ const Calendar = ({ onSubmissionSuccess }) => {
         }
     }, [USE_DJANGO_API, API_BASE_URL, authUser, user.user])
 
-    useEffect(() => {
-        loadUserData()
-    }, [loadUserData])
+    useEffect(() => { loadUserData() }, [loadUserData])
 
-    const handleSubmissionSuccess = useCallback(async (submissionData) => {
+    const handleSubmissionSuccess = useCallback(async () => {
         await loadUserData()
         setTimeout(() => setRefreshKey(prev => prev + 1), 100)
     }, [loadUserData])
@@ -70,10 +68,10 @@ const Calendar = ({ onSubmissionSuccess }) => {
         if (onSubmissionSuccess) onSubmissionSuccess(handleSubmissionSuccess)
     }, [onSubmissionSuccess, handleSubmissionSuccess])
 
-    // Ensure there is at least one entry to prevent ActivityCalendar crash
-    const safeSampleData = sampleData.length > 0 ? sampleData : [
-        { date: new Date().toISOString().split('T')[0], count: 0, level: 0 }
-    ];
+    // Ensure at least one valid ISO date entry to prevent parseISO errors
+    const safeSampleData = sampleData.length > 0
+        ? sampleData
+        : [{ date: new Date().toISOString().slice(0, 10), count: 0, level: 0 }]
 
     return (
         <div style={{ marginTop: '24px' }}>
@@ -131,3 +129,4 @@ const Calendar = ({ onSubmissionSuccess }) => {
 }
 
 export default Calendar
+
