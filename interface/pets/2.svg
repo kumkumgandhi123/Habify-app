@@ -1,0 +1,29 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Draven - Shadow pet -->
+  <defs>
+    <radialGradient id="shadowGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#696969"/>
+      <stop offset="50%" stop-color="#2F2F2F"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <!-- Shadow base -->
+  <ellipse cx="50" cy="85" rx="35" ry="8" fill="black" opacity="0.3"/>
+  <!-- Body -->
+  <ellipse cx="50" cy="60" rx="20" ry="25" fill="url(#shadowGrad)"/>
+  <!-- Head -->
+  <circle cx="50" cy="35" r="15" fill="url(#shadowGrad)"/>
+  <!-- Horns -->
+  <path d="M42 25 Q40 20 38 18" stroke="#8A2BE2" stroke-width="3" fill="none"/>
+  <path d="M58 25 Q60 20 62 18" stroke="#8A2BE2" stroke-width="3" fill="none"/>
+  <!-- Eyes -->
+  <circle cx="46" cy="33" r="2" fill="#8A2BE2"/>
+  <circle cx="54" cy="33" r="2" fill="#8A2BE2"/>
+  <!-- Mystical aura -->
+  <circle cx="50" cy="50" r="30" fill="none" stroke="#8A2BE2" stroke-width="1" opacity="0.5"/>
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#4B0082" stroke-width="1" opacity="0.3"/>
+  <!-- Dark energy wisps -->
+  <path d="M20 30 Q25 25 20 20" stroke="#8A2BE2" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M80 40 Q75 35 80 30" stroke="#8A2BE2" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M30 70 Q35 65 30 60" stroke="#4B0082" stroke-width="2" fill="none" opacity="0.4"/>
+</svg>

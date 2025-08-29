@@ -1,0 +1,36 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Verminator - Bug pet -->
+  <defs>
+    <radialGradient id="bugGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#90EE90"/>
+      <stop offset="50%" stop-color="#228B22"/>
+      <stop offset="100%" stop-color="#006400"/>
+    </radialGradient>
+  </defs>
+  <!-- Body segments -->
+  <ellipse cx="50" cy="45" rx="18" ry="12" fill="url(#bugGrad)"/>
+  <ellipse cx="50" cy="60" rx="15" ry="10" fill="#228B22"/>
+  <ellipse cx="50" cy="75" rx="12" ry="8" fill="#006400"/>
+  <!-- Head -->
+  <circle cx="50" cy="30" r="12" fill="url(#bugGrad)"/>
+  <!-- Antennae -->
+  <path d="M45 20 Q42 15 40 12" stroke="#006400" stroke-width="2" fill="none"/>
+  <path d="M55 20 Q58 15 60 12" stroke="#006400" stroke-width="2" fill="none"/>
+  <circle cx="40" cy="12" r="2" fill="#FFD700"/>
+  <circle cx="60" cy="12" r="2" fill="#FFD700"/>
+  <!-- Eyes -->
+  <circle cx="47" cy="28" r="3" fill="white"/>
+  <circle cx="53" cy="28" r="3" fill="white"/>
+  <circle cx="47" cy="28" r="2" fill="red"/>
+  <circle cx="53" cy="28" r="2" fill="red"/>
+  <!-- Legs -->
+  <path d="M35 50 Q25 55 20 50" stroke="#006400" stroke-width="3" fill="none"/>
+  <path d="M35 60 Q25 65 20 60" stroke="#006400" stroke-width="3" fill="none"/>
+  <path d="M35 70 Q25 75 20 70" stroke="#006400" stroke-width="3" fill="none"/>
+  <path d="M65 50 Q75 55 80 50" stroke="#006400" stroke-width="3" fill="none"/>
+  <path d="M65 60 Q75 65 80 60" stroke="#006400" stroke-width="3" fill="none"/>
+  <path d="M65 70 Q75 75 80 70" stroke="#006400" stroke-width="3" fill="none"/>
+  <!-- Wing patterns -->
+  <ellipse cx="42" cy="45" rx="3" ry="8" fill="#90EE90" opacity="0.7"/>
+  <ellipse cx="58" cy="45" rx="3" ry="8" fill="#90EE90" opacity="0.7"/>
+</svg>

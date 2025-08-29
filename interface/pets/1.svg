@@ -1,0 +1,30 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pyrogriff - Fire spirit -->
+  <defs>
+    <radialGradient id="fireGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#FF4500"/>
+      <stop offset="100%" stop-color="#DC143C"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="60" rx="22" ry="18" fill="url(#fireGrad)"/>
+  <!-- Head -->
+  <circle cx="50" cy="40" r="16" fill="url(#fireGrad)"/>
+  <!-- Beak -->
+  <path d="M50 32 L48 28 L52 28 Z" fill="#FFD700"/>
+  <!-- Eyes -->
+  <circle cx="46" cy="37" r="2.5" fill="white"/>
+  <circle cx="54" cy="37" r="2.5" fill="white"/>
+  <circle cx="46" cy="37" r="1.5" fill="red"/>
+  <circle cx="54" cy="37" r="1.5" fill="red"/>
+  <!-- Wings -->
+  <ellipse cx="30" cy="55" rx="12" ry="20" fill="#FF4500" transform="rotate(-20 30 55)"/>
+  <ellipse cx="70" cy="55" rx="12" ry="20" fill="#FF4500" transform="rotate(20 70 55)"/>
+  <!-- Flames -->
+  <path d="M50 20 Q45 15 47 10 Q50 15 50 20 Q55 15 53 10 Q50 15 50 20" fill="#FFD700" opacity="0.8"/>
+  <path d="M30 45 Q25 40 27 35 Q30 40 30 45" fill="#FF4500" opacity="0.7"/>
+  <path d="M70 45 Q75 40 73 35 Q70 40 70 45" fill="#FF4500" opacity="0.7"/>
+  <!-- Tail flames -->
+  <path d="M50 78 Q45 85 47 90 Q50 85 50 78 Q55 85 53 90 Q50 85 50 78" fill="#DC143C"/>
+</svg>

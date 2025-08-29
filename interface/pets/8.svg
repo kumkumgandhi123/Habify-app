@@ -1,0 +1,36 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Petally - Nature pet -->
+  <defs>
+    <radialGradient id="natureGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#98FB98"/>
+      <stop offset="50%" stop-color="#00FF7F"/>
+      <stop offset="100%" stop-color="#32CD32"/>
+    </radialGradient>
+  </defs>
+  <!-- Stem/body -->
+  <rect x="47" y="50" width="6" height="35" fill="#228B22" rx="3"/>
+  <!-- Main flower head -->
+  <circle cx="50" cy="40" r="12" fill="url(#natureGrad)" stroke="#228B22" stroke-width="2"/>
+  <!-- Petals -->
+  <ellipse cx="50" cy="28" rx="5" ry="12" fill="#FFB6C1"/>
+  <ellipse cx="62" cy="40" rx="5" ry="12" fill="#FFB6C1" transform="rotate(72 62 40)"/>
+  <ellipse cx="58" cy="55" rx="5" ry="12" fill="#FFB6C1" transform="rotate(144 58 55)"/>
+  <ellipse cx="42" cy="55" rx="5" ry="12" fill="#FFB6C1" transform="rotate(216 42 55)"/>
+  <ellipse cx="38" cy="40" rx="5" ry="12" fill="#FFB6C1" transform="rotate(288 38 40)"/>
+  <!-- Center -->
+  <circle cx="50" cy="40" r="4" fill="#FFD700"/>
+  <!-- Leaves -->
+  <ellipse cx="38" cy="60" rx="8" ry="4" fill="#32CD32" transform="rotate(-30 38 60)"/>
+  <ellipse cx="62" cy="65" rx="8" ry="4" fill="#32CD32" transform="rotate(30 62 65)"/>
+  <ellipse cx="40" cy="75" rx="6" ry="3" fill="#228B22" transform="rotate(-45 40 75)"/>
+  <!-- Roots/ground -->
+  <ellipse cx="50" cy="88" rx="15" ry="3" fill="#8B4513" opacity="0.6"/>
+  <!-- Sparkles (growth magic) -->
+  <circle cx="30" cy="30" r="1" fill="#FFD700"/>
+  <circle cx="70" cy="25" r="1" fill="#FFD700"/>
+  <circle cx="25" cy="50" r="1" fill="#98FB98"/>
+  <circle cx="75" cy="60" r="1" fill="#98FB98"/>
+  <!-- Small flowers around -->
+  <circle cx="25" cy="75" r="3" fill="#FFB6C1"/>
+  <circle cx="75" cy="80" r="3" fill="#FFB6C1"/>
+</svg>
