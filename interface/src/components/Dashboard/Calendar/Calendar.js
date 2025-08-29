@@ -143,7 +143,6 @@ const Calendar = ({ onSubmissionSuccess }) => {
                     <ActivityCalendar
                         key={refreshKey}
                         data={sampleData}
-                        theme={colorCustomization}
                         blockSize={12}
                         blockMargin={2}
                         fontSize={12}
