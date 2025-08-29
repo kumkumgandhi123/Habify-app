@@ -12,25 +12,19 @@ const Calendar = ({ onSubmissionSuccess }) => {
     const USE_DJANGO_API = process.env.REACT_APP_USE_BACKEND === 'true'
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
 
-    console.log('Calendar - API Config:', { USE_DJANGO_API, API_BASE_URL, authUser: authUser?.username || 'None' })
-
     // Safe default theme for ActivityCalendar
     const calendarTheme = {
         light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
     }
 
     const loadUserData = useCallback(async () => {
-        console.log('Loading user data for calendar...')
-
         try {
             if (USE_DJANGO_API && authUser) {
                 const response = await fetch(`${API_BASE_URL}/api/submissions/`, {
                     credentials: 'include',
                     headers: { 'Content-Type': 'application/json' }
                 })
-
                 if (!response.ok) throw new Error(`API Error: ${response.status}`)
-
                 const data = await response.json()
                 if (data.submissions && Array.isArray(data.submissions)) {
                     const transformedData = data.submissions.map(submission => ({
@@ -76,6 +70,11 @@ const Calendar = ({ onSubmissionSuccess }) => {
         if (onSubmissionSuccess) onSubmissionSuccess(handleSubmissionSuccess)
     }, [onSubmissionSuccess, handleSubmissionSuccess])
 
+    // Ensure there is at least one entry to prevent ActivityCalendar crash
+    const safeSampleData = sampleData.length > 0 ? sampleData : [
+        { date: new Date().toISOString().split('T')[0], count: 0, level: 0 }
+    ];
+
     return (
         <div style={{ marginTop: '24px' }}>
             <div style={{
@@ -102,8 +101,8 @@ const Calendar = ({ onSubmissionSuccess }) => {
                 }}>
                     <ActivityCalendar
                         key={refreshKey}
-                        data={sampleData || []} // ensures safe fallback
-                        theme={calendarTheme}   // safe theme
+                        data={safeSampleData}
+                        theme={calendarTheme}
                         blockSize={12}
                         blockMargin={2}
                         fontSize={12}
