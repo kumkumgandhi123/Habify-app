@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+"""Django settings for config project."""
+
 import os
 from pathlib import Path
 import dj_database_url
@@ -44,7 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # ✅ Must be at the top
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # For static files in prod
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,77 +57,37 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8000',
-    'http://localhost:3000',
-    'http://localhost:3001',
-)
+# ========================
+# ✅ CORS / CSRF SETTINGS
+# ========================
 
-# Additional CORS settings for proper frontend integration
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True
-
-# Dynamic CORS origins for dev and prod
-cors_origins_env = os.environ.get("CORS_ALLOWED_ORIGINS", "")
-if cors_origins_env:
-    CORS_ALLOWED_ORIGINS = cors_origins_env.split(",")
-else:
-    # Default for development
-    CORS_ALLOWED_ORIGINS = [
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:3001",
-    ]
-
-# In production with single domain, CORS is not needed
-# But we keep minimal config for flexibility  
-if not DEBUG:
-    # Allow Render domain for production
-    CORS_ALLOWED_ORIGINS = [
-        "https://habify-app.onrender.com",
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ]
-    CORS_ALLOW_ALL_ORIGINS = False
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+CORS_ALLOWED_ORIGINS = [
+    "https://habify-app.onrender.com",  # Production frontend
+    "http://localhost:3000",            # Local React dev
+    "http://127.0.0.1:3000",
 ]
 
-# CSRF settings for development and production
-CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "CSRF_TRUSTED_ORIGINS", 
-    "http://localhost:3000,http://localhost:3001,http://127.0.0.1:3000,http://127.0.0.1:3001"
-).split(",")
+CORS_ALLOW_CREDENTIALS = True
 
-# Add production URLs if available
-if not DEBUG:
-    # Add Render domain for production
-    render_domain = "https://habify-app.onrender.com"
-    CSRF_TRUSTED_ORIGINS.append(render_domain)
-    
-    # Add HTTPS versions for other origins
-    csrf_origins = []
-    for origin in CORS_ALLOWED_ORIGINS:
-        csrf_origins.append(origin)
-        # Add HTTPS version if HTTP
-        if origin.startswith("http://"):
-            csrf_origins.append(origin.replace("http://", "https://"))
-    CSRF_TRUSTED_ORIGINS.extend(csrf_origins)
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
-CSRF_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_HTTPONLY = False
-CSRF_USE_SESSIONS = False
+CSRF_TRUSTED_ORIGINS = [
+    "https://habify-app.onrender.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# ========================
 
 ROOT_URLCONF = 'config.urls'
 
@@ -201,6 +163,3 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = not DEBUG  # HTTPS only in production
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
-
-
-
