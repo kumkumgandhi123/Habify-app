@@ -1,0 +1,44 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Skiddo - Adventure pet -->
+  <defs>
+    <radialGradient id="adventureGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#DEB887"/>
+      <stop offset="50%" stop-color="#CD853F"/>
+      <stop offset="100%" stop-color="#8B4513"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="60" rx="20" ry="18" fill="url(#adventureGrad)"/>
+  <!-- Head -->
+  <ellipse cx="50" cy="40" rx="14" ry="16" fill="url(#adventureGrad)"/>
+  <!-- Horns -->
+  <path d="M45 28 Q42 22 40 20" stroke="#8B4513" stroke-width="3" fill="none"/>
+  <path d="M55 28 Q58 22 60 20" stroke="#8B4513" stroke-width="3" fill="none"/>
+  <!-- Ears -->
+  <ellipse cx="42" cy="35" rx="4" ry="6" fill="#CD853F" transform="rotate(-20 42 35)"/>
+  <ellipse cx="58" cy="35" rx="4" ry="6" fill="#CD853F" transform="rotate(20 58 35)"/>
+  <!-- Eyes (determined) -->
+  <circle cx="46" cy="38" r="3" fill="white"/>
+  <circle cx="54" cy="38" r="3" fill="white"/>
+  <circle cx="46" cy="38" r="2" fill="black"/>
+  <circle cx="54" cy="38" r="2" fill="black"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="43" rx="3" ry="2" fill="#8B4513"/>
+  <!-- Legs (ready to jump) -->
+  <ellipse cx="40" cy="78" rx="4" ry="8" fill="#CD853F"/>
+  <ellipse cx="60" cy="78" rx="4" ry="8" fill="#CD853F"/>
+  <ellipse cx="40" cy="75" rx="4" ry="6" fill="#8B4513"/>
+  <ellipse cx="60" cy="75" rx="4" ry="6" fill="#8B4513"/>
+  <!-- Tail -->
+  <ellipse cx="72" cy="58" rx="8" ry="4" fill="#CD853F" transform="rotate(30 72 58)"/>
+  <!-- Adventure gear (small backpack) -->
+  <rect x="45" y="52" width="10" height="8" fill="#228B22" rx="2"/>
+  <circle cx="47" cy="54" r="1" fill="#FFD700"/>
+  <circle cx="53" cy="56" r="1" fill="#FFD700"/>
+  <!-- Ground impact (ready to leap) -->
+  <ellipse cx="40" cy="85" rx="6" ry="2" fill="#8B4513" opacity="0.5"/>
+  <ellipse cx="60" cy="85" rx="6" ry="2" fill="#8B4513" opacity="0.5"/>
+  <!-- Motion lines -->
+  <path d="M25 70 L30 68" stroke="#DEB887" stroke-width="2" opacity="0.6"/>
+  <path d="M20 65 L25 63" stroke="#DEB887" stroke-width="2" opacity="0.6"/>
+</svg>

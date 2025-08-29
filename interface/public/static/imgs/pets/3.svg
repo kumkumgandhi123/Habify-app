@@ -1,0 +1,34 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Doge - Meme pet -->
+  <defs>
+    <radialGradient id="dogeGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#DEB887"/>
+      <stop offset="100%" stop-color="#D2691E"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="65" rx="25" ry="20" fill="url(#dogeGrad)"/>
+  <!-- Head -->
+  <ellipse cx="50" cy="40" rx="20" ry="18" fill="url(#dogeGrad)"/>
+  <!-- Ears -->
+  <ellipse cx="38" cy="30" rx="6" ry="12" fill="#D2691E" transform="rotate(-20 38 30)"/>
+  <ellipse cx="62" cy="30" rx="6" ry="12" fill="#D2691E" transform="rotate(20 62 30)"/>
+  <!-- Eyes -->
+  <circle cx="45" cy="38" r="3" fill="black"/>
+  <circle cx="55" cy="38" r="3" fill="black"/>
+  <circle cx="45.5" cy="37.5" r="0.5" fill="white"/>
+  <circle cx="55.5" cy="37.5" r="0.5" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="42" rx="2" ry="1.5" fill="black"/>
+  <!-- Mouth -->
+  <path d="M47 45 Q50 48 53 45" stroke="black" stroke-width="1.5" fill="none"/>
+  <!-- Tongue -->
+  <ellipse cx="52" cy="47" rx="3" ry="2" fill="#FF69B4"/>
+  <!-- Tail -->
+  <path d="M75 60 Q80 55 78 50 Q85 55 80 60" fill="#D2691E"/>
+  <!-- "Much wow" text effect -->
+  <text x="20" y="20" font-family="Comic Sans MS" font-size="8" fill="#FFD700">much</text>
+  <text x="70" y="25" font-family="Comic Sans MS" font-size="6" fill="#FFD700">wow</text>
+  <text x="15" y="80" font-family="Comic Sans MS" font-size="7" fill="#FFD700">very</text>
+  <text x="75" y="85" font-family="Comic Sans MS" font-size="5" fill="#FFD700">friend</text>
+</svg>
