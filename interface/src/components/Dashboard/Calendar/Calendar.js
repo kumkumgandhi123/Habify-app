@@ -12,7 +12,6 @@ const Calendar = ({ onSubmissionSuccess }) => {
     const USE_DJANGO_API = process.env.REACT_APP_USE_BACKEND === 'true'
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
 
-    // Valid 5-color light theme for ActivityCalendar
     const calendarTheme = {
         light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
     }
@@ -28,14 +27,12 @@ const Calendar = ({ onSubmissionSuccess }) => {
                 const data = await response.json()
                 if (data.submissions && Array.isArray(data.submissions)) {
                     const transformedData = data.submissions.map(submission => ({
-                        date: submission.created_at.split('T')[0], // YYYY-MM-DD
+                        date: submission.created_at.split('T')[0],
                         count: 1,
                         level: submission.activity
                     }))
                     setSampleData(transformedData)
-                } else {
-                    setSampleData([])
-                }
+                } else setSampleData([])
             } else {
                 const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
                 const transformedData = submissions.map(submission => ({
@@ -68,7 +65,6 @@ const Calendar = ({ onSubmissionSuccess }) => {
         if (onSubmissionSuccess) onSubmissionSuccess(handleSubmissionSuccess)
     }, [onSubmissionSuccess, handleSubmissionSuccess])
 
-    // Ensure at least one valid ISO date entry to prevent parseISO errors
     const safeSampleData = sampleData.length > 0
         ? sampleData
         : [{ date: new Date().toISOString().slice(0, 10), count: 0, level: 0 }]
@@ -129,4 +125,5 @@ const Calendar = ({ onSubmissionSuccess }) => {
 }
 
 export default Calendar
+
 
