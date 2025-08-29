@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useContext } from "react"
-import { ActivityCalendar } from "react-activity-calendar"
+import ActivityCalendar from 'react-activity-calendar'
 import UserContext from "../../../context/user-context"
 import { useAuth } from "../../../context/auth-context"
 
