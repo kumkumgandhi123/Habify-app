@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 from .views import ReactAppView
 
 urlpatterns = [
@@ -26,11 +27,15 @@ urlpatterns = [
     # API endpoints
     path('api/', include('user_app.urls')),
     path('api/rewards/', include('rewards_app.urls')),
-    
-    # Serve React app for all other routes (must be last)
-    re_path(r'^.*$', ReactAppView.as_view(), name='react_app'),
 ]
 
-# Serve static files in development
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# Serve static files (CRITICAL for production image loading)
+# This MUST come before the React app fallback
+urlpatterns += [
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+]
+
+# Serve React app for all other routes (MUST be last)
+urlpatterns += [
+    re_path(r'^.*$', ReactAppView.as_view(), name='react_app'),
+]
