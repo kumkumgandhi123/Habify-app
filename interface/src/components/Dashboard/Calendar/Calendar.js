@@ -29,7 +29,6 @@ const Calendar = ({ onSubmissionSuccess }) => {
         activity5: '#39d353'
     }
 
-    // Wrap loadUserData in useCallback to fix ESLint dependency warning
     const loadUserData = useCallback(async () => {
         console.log('Loading user data for calendar...')
         
@@ -37,7 +36,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             if (USE_DJANGO_API && authUser) {
                 console.log('Fetching from Django API...')
                 
-                const response = await fetch(${API_BASE_URL}/api/submissions/, {
+                const response = await fetch(`${API_BASE_URL}/api/submissions/`, {
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,7 +45,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
 
                 if (!response.ok) {
                     console.error('API Error:', response.status, response.statusText)
-                    throw new Error(API Error: ${response.status})
+                    throw new Error(`API Error: ${response.status}`)
                 }
 
                 const data = await response.json()
@@ -69,7 +68,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             } else {
                 console.log('Using localStorage fallback...')
                 
-                const submissions = JSON.parse(localStorage.getItem(habify_submissions_${user.user}) || '[]')
+                const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
                 console.log('LocalStorage submissions:', submissions)
                 
                 const transformedData = submissions.map(submission => ({
@@ -86,7 +85,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             console.error('Failed to load calendar data:', error)
             
             console.log('Falling back to localStorage due to error...')
-            const submissions = JSON.parse(localStorage.getItem(habify_submissions_${user.user}) || '[]')
+            const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
             const transformedData = submissions.map(submission => ({
                 date: submission.day,
                 count: 1,
