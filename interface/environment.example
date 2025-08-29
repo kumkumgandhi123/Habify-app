@@ -1,0 +1,13 @@
+# Habify Environment Variables Example
+# Copy this to .env for configuration
+
+# Set to 'true' to use Django backend, 'false' for localStorage only
+REACT_APP_USE_BACKEND=false
+
+# Django backend URL (only used if USE_BACKEND=true)
+REACT_APP_API_URL=http://localhost:8000
+
+# Development settings
+DISABLE_ESLINT_PLUGIN=true
+GENERATE_SOURCEMAP=false
+FAST_REFRESH=true

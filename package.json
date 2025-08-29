@@ -1,0 +1,28 @@
+{
+  "name": "habify-app",
+  "version": "1.0.0",
+  "description": "A full-stack habit tracking app with Django backend and React frontend",
+  "scripts": {
+    "build": "cd interface && npm install && npm run build",
+    "heroku-postbuild": "cd interface && npm install && npm run build",
+    "start": "python manage.py runserver",
+    "dev": "concurrently \"python manage.py runserver\" \"cd interface && npm start\"",
+    "install-deps": "pip install -r requirements.txt && cd interface && npm install"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "keywords": [
+    "django",
+    "react",
+    "habit-tracking",
+    "gamification",
+    "fullstack"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

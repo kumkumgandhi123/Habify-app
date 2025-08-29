@@ -1,0 +1,78 @@
+# Python
+venv/
+__pycache__/
+db.sqlite3
+staticfiles/
+.env
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Node.js / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# React build
+/interface/build/
+/interface/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Temporary files
+.tmp/
+tmp/
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Backup files
+*_backup_*/
+
+# Testing files
+test_cookies.txt
+cookies.txt
+
+# macOS
+*.DS_Store
+
+# Django static files
+static/
+staticfiles/
+
+# Database backups
+*.dump
+*.sql
