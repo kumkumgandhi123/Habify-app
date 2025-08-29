@@ -142,7 +142,14 @@ const Calendar = ({ onSubmissionSuccess }) => {
                 }}>
                     <ActivityCalendar
                         key={refreshKey}
-                        data={sampleData}
+                        data={sampleData.length > 0 ? sampleData : [
+                            {
+                            date: new Date().toISOString().split('T')[0],
+                            count: 1,
+                            level: 0
+                            }
+                        ]}
+                        theme={colorCustomization}
                         blockSize={12}
                         blockMargin={2}
                         fontSize={12}
