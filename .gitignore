@@ -1,6 +1,6 @@
 # Python
 venv/
-__pycache__/
+_pycache_/
 db.sqlite3
 staticfiles/
 .env
@@ -60,7 +60,7 @@ coverage/
 .nyc_output/
 
 # Backup files
-*_backup_*/
+backup/
 
 # Testing files
 test_cookies.txt
@@ -69,9 +69,10 @@ cookies.txt
 # macOS
 *.DS_Store
 
-# Django static files
-static/
+# Django static files (but allow public images)
 staticfiles/
+interface/build/static/
+!interface/public/static/
 
 # Database backups
 *.dump
