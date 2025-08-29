@@ -6,9 +6,25 @@ echo "=== Building Habify App for Production ==="
 # Build React frontend
 echo "Building React frontend..."
 cd interface
+
+# Aggressive cleanup to resolve dependency conflicts
+echo "Cleaning npm cache and dependencies..."
 npm cache clean --force
-npm install --legacy-peer-deps
+rm -rf node_modules
+rm -f package-lock.json
+
+# Install with aggressive dependency resolution
+echo "Installing dependencies with conflict resolution..."
+npm install --legacy-peer-deps --force --no-audit
+
+# Rebuild native dependencies for current Node version
+echo "Rebuilding dependencies..."
+npm rebuild
+
+# Build React app
+echo "Building React application..."
 npm run build
+
 cd ..
 
 # Install Python dependencies
