@@ -24,7 +24,7 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 # Hosts
 ALLOWED_HOSTS = os.environ.get(
     "ALLOWED_HOSTS",
-    "localhost,127.0.0.1"
+    "localhost,127.0.0.1,habify-backend.onrender.com"
 ).split(",")
 
 # Applications
@@ -62,8 +62,8 @@ MIDDLEWARE = [
 # ========================
 
 CORS_ALLOWED_ORIGINS = [
-    "https://habify-app.onrender.com",  # Production frontend
-    "http://localhost:3000",            # Local React dev
+    "https://habify-app.onrender.com",   # Production frontend
+    "http://localhost:3000",             # Local React dev
     "http://127.0.0.1:3000",
 ]
 
@@ -82,7 +82,8 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://habify-app.onrender.com",
+    "https://habify-app.onrender.com",      # ✅ Frontend
+    "https://habify-backend.onrender.com",  # ✅ Backend Render service
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
@@ -163,3 +164,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = not DEBUG  # HTTPS only in production
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
+
