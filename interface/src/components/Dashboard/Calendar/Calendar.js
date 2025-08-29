@@ -9,82 +9,50 @@ const Calendar = ({ onSubmissionSuccess }) => {
     const [sampleData, setSampleData] = useState([])
     const [refreshKey, setRefreshKey] = useState(0)
     
-    // API Configuration
     const USE_DJANGO_API = process.env.REACT_APP_USE_BACKEND === 'true'
     const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
-    
-    console.log('Calendar - API Config:', {
-        USE_DJANGO_API,
-        API_BASE_URL,
-        authUser: authUser ? authUser.username : 'None'
-    })
 
-    // Color customization for activity levels
-    const colorCustomization = {
-        activity0: '#161b22',
-        activity1: '#0e4429', 
-        activity2: '#006d32',
-        activity3: '#26a641',
-        activity4: '#39d353',
-        activity5: '#39d353'
+    console.log('Calendar - API Config:', { USE_DJANGO_API, API_BASE_URL, authUser: authUser?.username || 'None' })
+
+    // Safe default theme for ActivityCalendar
+    const calendarTheme = {
+        light: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
     }
 
     const loadUserData = useCallback(async () => {
         console.log('Loading user data for calendar...')
-        
+
         try {
             if (USE_DJANGO_API && authUser) {
-                console.log('Fetching from Django API...')
-                
                 const response = await fetch(`${API_BASE_URL}/api/submissions/`, {
                     credentials: 'include',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/json' }
                 })
 
-                if (!response.ok) {
-                    console.error('API Error:', response.status, response.statusText)
-                    throw new Error(`API Error: ${response.status}`)
-                }
+                if (!response.ok) throw new Error(`API Error: ${response.status}`)
 
                 const data = await response.json()
-                console.log('API Response:', data)
-
                 if (data.submissions && Array.isArray(data.submissions)) {
                     const transformedData = data.submissions.map(submission => ({
                         date: submission.created_at.split('T')[0],
                         count: 1,
                         level: submission.activity
                     }))
-                    
-                    console.log('Transformed data:', transformedData)
                     setSampleData(transformedData)
                 } else {
-                    console.log('No submissions found in API response')
                     setSampleData([])
                 }
-                
             } else {
-                console.log('Using localStorage fallback...')
-                
                 const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
-                console.log('LocalStorage submissions:', submissions)
-                
                 const transformedData = submissions.map(submission => ({
                     date: submission.day,
                     count: 1,
                     level: submission.activity
                 }))
-                
-                console.log('Transformed localStorage data:', transformedData)
                 setSampleData(transformedData)
             }
-            
         } catch (error) {
             console.error('Failed to load calendar data:', error)
-            
-            console.log('Falling back to localStorage due to error...')
             const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
             const transformedData = submissions.map(submission => ({
                 date: submission.day,
@@ -96,30 +64,17 @@ const Calendar = ({ onSubmissionSuccess }) => {
     }, [USE_DJANGO_API, API_BASE_URL, authUser, user.user])
 
     useEffect(() => {
-        console.log('Calendar useEffect triggered')
         loadUserData()
     }, [loadUserData])
 
     const handleSubmissionSuccess = useCallback(async (submissionData) => {
-        console.log('Calendar: Handling successful submission:', submissionData)
-        
         await loadUserData()
-        
-        setTimeout(() => {
-            setRefreshKey(prev => prev + 1)
-            console.log('Calendar: Refresh key updated, component should re-render')
-        }, 100)
-        
+        setTimeout(() => setRefreshKey(prev => prev + 1), 100)
     }, [loadUserData])
 
     useEffect(() => {
-        if (onSubmissionSuccess) {
-            onSubmissionSuccess(handleSubmissionSuccess)
-        }
+        if (onSubmissionSuccess) onSubmissionSuccess(handleSubmissionSuccess)
     }, [onSubmissionSuccess, handleSubmissionSuccess])
-
-    console.log('Calendar rendering with data:', sampleData)
-    console.log('Refresh key:', refreshKey)
 
     return (
         <div style={{ marginTop: '24px' }}>
@@ -147,8 +102,8 @@ const Calendar = ({ onSubmissionSuccess }) => {
                 }}>
                     <ActivityCalendar
                         key={refreshKey}
-                        data={sampleData}
-                        theme={colorCustomization}
+                        data={sampleData || []} // ensures safe fallback
+                        theme={calendarTheme}   // safe theme
                         blockSize={12}
                         blockMargin={2}
                         fontSize={12}
@@ -168,7 +123,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
                         🟢 Success • 🟡 Partial • 🔴 Struggle • ⚫ No data
                     </p>
                     <p style={{ margin: '4px 0', fontWeight: 'bold' }}>
-                        Total entries: {sampleData.length}
+                        Total entries: {sampleData?.length || 0}
                     </p>
                 </div>
             </div>
