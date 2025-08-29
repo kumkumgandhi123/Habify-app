@@ -7,7 +7,7 @@ echo "=== Building Habify App for Production ==="
 echo "Building React frontend..."
 cd interface
 npm cache clean --force
-npm ci --legacy-peer-deps
+npm install --legacy-peer-deps
 npm run build
 cd ..
 
@@ -15,11 +15,11 @@ cd ..
 echo "Installing Python dependencies..."
 pip install -r requirements.txt
 
-# Collect static files (includes React build)
+# Collect static files (includes React build + images)
 echo "Collecting static files..."
 python manage.py collectstatic --noinput --clear
 
-#Verify static files collected correctly
+# Verify static files collected correctly
 echo "Verifying static files..."
 ls -la staticfiles/static/imgs/pets/ 2>/dev/null && echo "✅ Pet images collected" || echo "❌ Pet images missing"
 ls -la staticfiles/static/imgs/nav/ 2>/dev/null && echo "✅ Nav images collected" || echo "❌ Nav images missing"
