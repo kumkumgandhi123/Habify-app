@@ -19,11 +19,12 @@ const Calendar = ({ onSubmissionSuccess }) => {
         authUser: authUser ? authUser.username : 'None'
     })
 
-    // Color customization for activity levels
+    // Color customization for activity levels (FIXED FORMAT)
     const colorCustomization = {
-        light:['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+        light: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
     }
 
+    // Wrap loadUserData in useCallback to fix ESLint dependency warning
     const loadUserData = useCallback(async () => {
         console.log('Loading user data for calendar...')
         
@@ -31,7 +32,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             if (USE_DJANGO_API && authUser) {
                 console.log('Fetching from Django API...')
                 
-                const response = await fetch(`${API_BASE_URL}/api/submissions/`, {
+                const response = await fetch(${API_BASE_URL}/api/submissions/, {
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json'
@@ -40,7 +41,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
 
                 if (!response.ok) {
                     console.error('API Error:', response.status, response.statusText)
-                    throw new Error(`API Error: ${response.status}`)
+                    throw new Error(API Error: ${response.status})
                 }
 
                 const data = await response.json()
@@ -63,7 +64,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             } else {
                 console.log('Using localStorage fallback...')
                 
-                const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
+                const submissions = JSON.parse(localStorage.getItem(habify_submissions_${user.user}) || '[]')
                 console.log('LocalStorage submissions:', submissions)
                 
                 const transformedData = submissions.map(submission => ({
@@ -80,7 +81,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
             console.error('Failed to load calendar data:', error)
             
             console.log('Falling back to localStorage due to error...')
-            const submissions = JSON.parse(localStorage.getItem(`habify_submissions_${user.user}`) || '[]')
+            const submissions = JSON.parse(localStorage.getItem(habify_submissions_${user.user}) || '[]')
             const transformedData = submissions.map(submission => ({
                 date: submission.day,
                 count: 1,
@@ -140,23 +141,32 @@ const Calendar = ({ onSubmissionSuccess }) => {
                     alignItems: 'center',
                     minHeight: '200px'
                 }}>
-                    <ActivityCalendar
-                        key={refreshKey}
-                        data={sampleData.length > 0 ? sampleData : [
-                            {
-                            date: new Date().toISOString().split('T')[0],
-                            count: 1,
-                            level: 0
-                            }
-                        ]}
-                        theme={colorCustomization}
-                        blockSize={12}
-                        blockMargin={2}
-                        fontSize={12}
-                        hideColorLegend={false}
-                        hideTotalCount={false}
-                        showWeekdayLabels={true}
-                    />
+                    {sampleData.length > 0 ? (
+                        <ActivityCalendar
+                            key={refreshKey}
+                            data={sampleData}
+                            theme={colorCustomization}
+                            blockSize={12}
+                            blockMargin={2}
+                            fontSize={12}
+                            hideColorLegend={false}
+                            hideTotalCount={false}
+                            showWeekdayLabels={true}
+                        />
+                    ) : (
+                        <div style={{
+                            textAlign: 'center',
+                            padding: '40px',
+                            color: '#666',
+                            background: '#f8f9fa',
+                            borderRadius: '8px',
+                            width: '100%'
+                        }}>
+                            <div style={{ fontSize: '48px', marginBottom: '16px' }}>📊</div>
+                            <h3 style={{ margin: '0 0 8px 0', color: '#333' }}>No Activity Data Yet</h3>
+                            <p style={{ margin: 0 }}>Start tracking your habits to see your beautiful progress calendar!</p>
+                        </div>
+                    )}
                 </div>
                 
                 <div style={{
