@@ -3,29 +3,35 @@ set -o errexit
 
 echo "=== Building Habify App for Production ==="
 
-# Build React frontend
-echo "Building React frontend..."
-cd interface
-
-# Aggressive cleanup to resolve dependency conflicts
-echo "Cleaning npm cache and dependencies..."
-npm cache clean --force
-rm -rf node_modules
-rm -f package-lock.json
-
-# Install with aggressive dependency resolution
-echo "Installing dependencies with conflict resolution..."
-npm install --legacy-peer-deps --force --no-audit
-
-# Rebuild native dependencies for current Node version
-echo "Rebuilding dependencies..."
-npm rebuild
-
-# Build React app
-echo "Building React application..."
-npm run build
-
-cd ..
+# Check if React build already exists
+if [ -d "interface/build" ]; then
+    echo "✅ Using existing React build (pre-built locally)"
+else
+    echo "❌ No React build found - attempting to build..."
+    # Build React frontend with specific ajv fix
+    echo "Building React frontend..."
+    cd interface
+    
+    # Aggressive cleanup
+    echo "Cleaning npm cache and dependencies..."
+    npm cache clean --force
+    rm -rf node_modules
+    rm -f package-lock.json
+    
+    # Install with specific ajv version fix
+    echo "Installing dependencies with ajv compatibility fix..."
+    npm install --legacy-peer-deps --force --no-audit
+    
+    # Manually install compatible ajv version
+    echo "Installing compatible ajv version..."
+    npm install ajv@8.12.0 --legacy-peer-deps --save-dev
+    
+    # Build React app
+    echo "Building React application..."
+    npm run build
+    
+    cd ..
+fi
 
 # Install Python dependencies
 echo "Installing Python dependencies..."
