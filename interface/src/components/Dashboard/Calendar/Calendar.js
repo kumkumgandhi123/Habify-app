@@ -21,12 +21,7 @@ const Calendar = ({ onSubmissionSuccess }) => {
 
     // Color customization for activity levels
     const colorCustomization = {
-        activity0: '#161b22',
-        activity1: '#0e4429', 
-        activity2: '#006d32',
-        activity3: '#26a641',
-        activity4: '#39d353',
-        activity5: '#39d353'
+        light:['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
     }
 
     const loadUserData = useCallback(async () => {
