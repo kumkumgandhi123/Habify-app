@@ -8,6 +8,23 @@
 ![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
 > Transform your daily habits into an engaging, reward-based adventure with virtual pet companions and a rupee economy system.
+### 🔹 Login Page
+<img width="1920" height="971" alt="Screenshot (987)" src="https://github.com/user-attachments/assets/1cda9fe3-c1dd-4ff0-9a5e-595942870de5" />
+### 🔹 Create account
+<img width="1920" height="960" alt="Screenshot (989)" src="https://github.com/user-attachments/assets/d14a8048-ee10-4ea4-aa1e-096f05826d26" />
+### 🔹 Forgot password
+<img width="1920" height="966" alt="Screenshot (988)" src="https://github.com/user-attachments/assets/7e8f7b19-a232-40cb-931a-1720a1ac4f77" />
+### 🔹 Calender Page
+<img width="1920" height="1037" alt="Screenshot (979)" src="https://github.com/user-attachments/assets/4bccff19-21a2-4f76-b153-555a87aff166" />
+### 🔹 Shop Page
+<img width="1920" height="1033" alt="Screenshot (980)" src="https://github.com/user-attachments/assets/c18eafa9-0b6e-44b9-b408-6a2e0cfbeed2" />
+<img width="1920" height="960" alt="Screenshot (981)" src="https://github.com/user-attachments/assets/f683079f-1ef8-4ed6-8fb7-c84f8cdf9884" />
+<img width="1920" height="1037" alt="Screenshot (982)" src="https://github.com/user-attachments/assets/1f0e2d8b-9c84-4f63-a2b3-cf9f25fe9c62" />
+<img width="1920" height="1038" alt="Screenshot (983)" src="https://github.com/user-attachments/assets/9dd77e88-ebfe-4108-8cb1-9aabb96397aa" />
+<img width="1920" height="1042" alt="Screenshot (984)" src="https://github.com/user-attachments/assets/4324b343-a1b4-4132-8fab-1684ef08ca81" />
+<img width="1920" height="1037" alt="Screenshot (985)" src="https://github.com/user-attachments/assets/b789a842-bfe2-4ad9-acc6-6dc2bc276e62" />
+### 🔹 Profile Page
+<img width="1920" height="1037" alt="Screenshot (986)" src="https://github.com/user-attachments/assets/bcb4823d-bfcc-4934-9f0e-fe62c1bab8a0" />
 
 ## 🌟 Overview
 
