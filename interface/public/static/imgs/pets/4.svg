@@ -1,0 +1,35 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Starshock - Electric pet -->
+  <defs>
+    <radialGradient id="electricGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#FFFF00"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="60" rx="20" ry="18" fill="url(#electricGrad)"/>
+  <!-- Head -->
+  <circle cx="50" cy="40" r="15" fill="url(#electricGrad)"/>
+  <!-- Electric spikes -->
+  <path d="M35 35 L30 25 L40 30 Z" fill="#FFFF00"/>
+  <path d="M65 35 L70 25 L60 30 Z" fill="#FFFF00"/>
+  <path d="M50 25 L45 15 L55 20 Z" fill="#FFFF00"/>
+  <!-- Eyes -->
+  <circle cx="46" cy="38" r="2.5" fill="white"/>
+  <circle cx="54" cy="38" r="2.5" fill="white"/>
+  <circle cx="46" cy="38" r="1.5" fill="#0000FF"/>
+  <circle cx="54" cy="38" r="1.5" fill="#0000FF"/>
+  <!-- Lightning bolts -->
+  <path d="M25 50 L30 45 L27 40 L32 35" stroke="#FFFF00" stroke-width="3" fill="none"/>
+  <path d="M75 50 L70 45 L73 40 L68 35" stroke="#FFFF00" stroke-width="3" fill="none"/>
+  <path d="M50 80 L45 75 L50 70 L45 65" stroke="#FFD700" stroke-width="2" fill="none"/>
+  <!-- Electric aura -->
+  <circle cx="50" cy="50" r="25" fill="none" stroke="#FFFF00" stroke-width="1" opacity="0.6"/>
+  <circle cx="50" cy="50" r="30" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+  <!-- Energy sparks -->
+  <circle cx="25" cy="30" r="1" fill="#FFFF00"/>
+  <circle cx="75" cy="35" r="1" fill="#FFFF00"/>
+  <circle cx="30" cy="70" r="1" fill="#FFD700"/>
+  <circle cx="70" cy="75" r="1" fill="#FFD700"/>
+</svg>

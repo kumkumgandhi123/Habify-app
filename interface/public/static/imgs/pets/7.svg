@@ -1,0 +1,36 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blanco - Ice pet -->
+  <defs>
+    <radialGradient id="iceGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#F0F8FF"/>
+      <stop offset="50%" stop-color="#E0FFFF"/>
+      <stop offset="100%" stop-color="#B0E0E6"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="50" cy="60" rx="20" ry="22" fill="url(#iceGrad)" stroke="#87CEEB" stroke-width="2"/>
+  <!-- Head -->
+  <circle cx="50" cy="38" r="16" fill="url(#iceGrad)" stroke="#87CEEB" stroke-width="2"/>
+  <!-- Ice spikes on head -->
+  <path d="M42 25 L38 18 L46 22 Z" fill="#E0FFFF" stroke="#87CEEB" stroke-width="1"/>
+  <path d="M50 22 L47 15 L53 18 Z" fill="#E0FFFF" stroke="#87CEEB" stroke-width="1"/>
+  <path d="M58 25 L62 18 L54 22 Z" fill="#E0FFFF" stroke="#87CEEB" stroke-width="1"/>
+  <!-- Eyes -->
+  <circle cx="46" cy="36" r="2.5" fill="white"/>
+  <circle cx="54" cy="36" r="2.5" fill="white"/>
+  <circle cx="46" cy="36" r="1.5" fill="#4169E1"/>
+  <circle cx="54" cy="36" r="1.5" fill="#4169E1"/>
+  <!-- Snowflakes around -->
+  <g stroke="#87CEEB" stroke-width="1" fill="none">
+    <path d="M25 25 L25 35 M20 30 L30 30 M22.5 27.5 L27.5 32.5 M27.5 27.5 L22.5 32.5"/>
+    <path d="M75 20 L75 30 M70 25 L80 25 M72.5 22.5 L77.5 27.5 M77.5 22.5 L72.5 27.5"/>
+    <path d="M20 65 L20 75 M15 70 L25 70 M17.5 67.5 L22.5 72.5 M22.5 67.5 L17.5 72.5"/>
+    <path d="M80 70 L80 80 M75 75 L85 75 M77.5 72.5 L82.5 77.5 M82.5 72.5 L77.5 77.5"/>
+  </g>
+  <!-- Ice crystals on body -->
+  <path d="M40 55 L35 50 L45 52 Z" fill="#E0FFFF" opacity="0.8"/>
+  <path d="M60 65 L65 60 L55 62 Z" fill="#E0FFFF" opacity="0.8"/>
+  <!-- Breath mist -->
+  <ellipse cx="58" cy="42" rx="8" ry="4" fill="#F0F8FF" opacity="0.6"/>
+  <ellipse cx="62" cy="44" rx="6" ry="3" fill="#E0FFFF" opacity="0.5"/>
+</svg>
