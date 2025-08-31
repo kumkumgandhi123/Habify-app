@@ -1,0 +1,41 @@
+{
+  "name": "Habify App",
+  "description": "A full-stack habit tracking app with Django backend and React frontend",
+  "repository": "https://github.com/your-username/habify-app",
+  "logo": "https://your-logo-url.com/logo.png",
+  "keywords": ["django", "react", "habits", "tracking", "gamification", "python", "fullstack"],
+  "env": {
+    "SECRET_KEY": {
+      "description": "Django secret key for security",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "Django debug mode",
+      "value": "False"
+    },
+    "REACT_APP_USE_BACKEND": {
+      "description": "Enable Django backend for React frontend",
+      "value": "true"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:mini"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  }
+}
